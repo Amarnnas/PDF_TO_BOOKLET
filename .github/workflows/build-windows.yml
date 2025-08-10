@@ -35,7 +35,9 @@ jobs:
 
       # الخطوة 4: بناء الملف التنفيذي (.exe) باستخدام PyInstaller
       - name: Build executable with PyInstaller
-        run: python -m PyInstaller --name "BookletCreator" --onefile --windowed --icon="assets/icon.ico" main.py
+        run: |
+          python -m pip install pyinstaller
+          python -m PyInstaller --name "BookletCreator" --onefile --windowed --icon="assets/icon.ico" main.py
 
       # الخطوة 5: رفع الملف التنفيذي الناتج كـ "Artifact"
       - name: Upload artifact
