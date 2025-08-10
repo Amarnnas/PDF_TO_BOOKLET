@@ -1,0 +1,27 @@
+# اسم سير العمل الذي سيظهر في تبويب Actions على GitHub
+name: Build Windows Executable
+
+# تحديد متى يتم تشغيل هذا الـ Action تلقائيًا
+on:
+  push:
+    branches: [ "main" ] # يعمل عند أي عملية push لفرع main
+  pull_request:
+    branches: [ "main" ] # يعمل عند أي pull request لفرع main
+
+# تحديد المهام التي سيتم تنفيذها
+jobs:
+  build:
+    # تحديد نظام التشغيل الذي ستعمل عليه المهمة
+    runs-on: windows-latest
+
+    # تحديد الخطوات التي ستنفذ بالترتيب
+    steps:
+      # الخطوة 1: يقوم بسحب (checkout) الكود من المستودع الخاص بك إلى بيئة العمل
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # الخطوة 2: إعداد بيئة بايثون
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3
