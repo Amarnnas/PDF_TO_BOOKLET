@@ -37,7 +37,7 @@ jobs:
       - name: Build executable with PyInstaller
         run: |
           python -m pip install pyinstaller
-          python -m PyInstaller --name "BookletCreator" --onefile --windowed --icon="assets/icon.ico" main.py
+          python -m PyInstaller --name "BookletCreator" --onefile --windowed main.py
 
       # الخطوة 5: رفع الملف التنفيذي الناتج كـ "Artifact"
       - name: Upload artifact
